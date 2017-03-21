@@ -15,6 +15,7 @@
 		D8706A021E81AB3700725424 /* UIView + Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8706A011E81AB3700725424 /* UIView + Anchors.swift */; };
 		D8706A081E81ADED00725424 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8706A071E81ADED00725424 /* PageCell.swift */; };
 		D8706A0A1E81AE0500725424 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8706A091E81AE0500725424 /* BaseCell.swift */; };
+		D8706A0C1E81B16800725424 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8706A0B1E81B16800725424 /* Page.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D8706A011E81AB3700725424 /* UIView + Anchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Anchors.swift"; sourceTree = "<group>"; };
 		D8706A071E81ADED00725424 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		D8706A091E81AE0500725424 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		D8706A0B1E81B16800725424 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		D8706A051E81ADCF00725424 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D8706A0B1E81B16800725424 /* Page.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			files = (
 				D87069F21E81A83D00725424 /* ViewController.swift in Sources */,
 				D8706A021E81AB3700725424 /* UIView + Anchors.swift in Sources */,
+				D8706A0C1E81B16800725424 /* Page.swift in Sources */,
 				D8706A081E81ADED00725424 /* PageCell.swift in Sources */,
 				D8706A0A1E81AE0500725424 /* BaseCell.swift in Sources */,
 				D87069F01E81A83D00725424 /* AppDelegate.swift in Sources */,
@@ -346,6 +350,7 @@
 				D8706A001E81A83D00725424 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
