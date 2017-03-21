@@ -14,8 +14,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     private let loginCellId = "loginCellId"
     private var pageControlBottomAnchor: NSLayoutConstraint?
     private var skipButtonTopAnchor: NSLayoutConstraint?
-    private var nextButtonTopAnchor: NSLayoutConstraint?
-    
     
     let pages: [Page] = {
         
@@ -71,6 +69,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        observeKeyboardNotifications()
+        
         view.addSubview(collectionView)
         view.addSubview(pageControl)
         view.addSubview(skipButton)
@@ -79,9 +79,39 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.fillSuperview()
         pageControlBottomAnchor = pageControl.anchorAndReturn(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 40)[1]
         skipButtonTopAnchor = skipButton.anchorAndReturn(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 16, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 60, heightConstant: 50).first
-        nextButtonTopAnchor = nextButton.anchorAndReturn(top: skipButton.topAnchor, left: nil, bottom: nil, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 60, heightConstant: 50).first
+        nextButton.anchor(top: skipButton.topAnchor, left: nil, bottom: nil, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 60, heightConstant: 50)
         
         registerCells()
+    }
+    
+    private func observeKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: .UIKeyboardWillShow, object: nil)
+   
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardHide() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { [weak self] in
+            guard let this = self else {
+                return
+            }
+            
+            this.view.frame = CGRect(x: 0, y: 0, width: this.view.frame.width, height: this.view.frame.height)
+            }, completion: nil)
+    }
+    
+    func keyboardShow() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { [weak self] in
+            guard let this = self else {
+                return
+            }
+            
+            this.view.frame = CGRect(x: 0, y: -50, width: this.view.frame.width, height: this.view.frame.height)
+        }, completion: nil)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -91,11 +121,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if pageNumber == pages.count {
             pageControlBottomAnchor?.constant = 40
             skipButtonTopAnchor?.constant = -40
-            nextButtonTopAnchor?.constant = -40
         } else {
             pageControlBottomAnchor?.constant = 0
             skipButtonTopAnchor?.constant = 16
-            nextButtonTopAnchor?.constant = 16
         }
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { [weak self] in
@@ -105,7 +133,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     private func registerCells() {
         collectionView.register(PageCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: loginCellId)
+        collectionView.register(LoginCell.self, forCellWithReuseIdentifier: loginCellId)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
