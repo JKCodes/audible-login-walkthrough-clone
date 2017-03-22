@@ -21,6 +21,7 @@
 		D88F283E1E83210100E5BB7A /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F283D1E83210100E5BB7A /* MainNavigationController.swift */; };
 		D88F28401E83228600E5BB7A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F283F1E83228600E5BB7A /* HomeController.swift */; };
 		D88F28421E83277900E5BB7A /* LoginControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F28411E83277900E5BB7A /* LoginControllerDelegate.swift */; };
+		D88F28441E832BC200E5BB7A /* UserDefaults+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F28431E832BC200E5BB7A /* UserDefaults+helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D88F283D1E83210100E5BB7A /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		D88F283F1E83228600E5BB7A /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		D88F28411E83277900E5BB7A /* LoginControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerDelegate.swift; sourceTree = "<group>"; };
+		D88F28431E832BC200E5BB7A /* UserDefaults+helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		D8706A061E81ADD300725424 /* Protocols and Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D88F28431E832BC200E5BB7A /* UserDefaults+helpers.swift */,
 				D8706A011E81AB3700725424 /* UIView + Anchors.swift */,
 				D88F28411E83277900E5BB7A /* LoginControllerDelegate.swift */,
 			);
@@ -198,6 +201,7 @@
 			files = (
 				D88F283E1E83210100E5BB7A /* MainNavigationController.swift in Sources */,
 				D87069F21E81A83D00725424 /* LoginController.swift in Sources */,
+				D88F28441E832BC200E5BB7A /* UserDefaults+helpers.swift in Sources */,
 				D8706A0F1E81C0D300725424 /* LoginCell.swift in Sources */,
 				D8706A111E81C38D00725424 /* LeftPaddedTextField.swift in Sources */,
 				D88F28401E83228600E5BB7A /* HomeController.swift in Sources */,
