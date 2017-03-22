@@ -139,7 +139,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 return
             }
             
-            this.view.frame = CGRect(x: 0, y: -50, width: this.view.frame.width, height: this.view.frame.height)
+            let y: CGFloat = UIDevice.current.orientation.isLandscape ? -130 : -50
+            this.view.frame = CGRect(x: 0, y: y, width: this.view.frame.width, height: this.view.frame.height)
         }, completion: nil)
     }
     
