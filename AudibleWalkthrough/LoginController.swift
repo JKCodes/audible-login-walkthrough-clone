@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class LoginController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,LoginControllerDelegate {
 
     private let cellId = "cellId"
     private let loginCellId = "loginCellId"
@@ -182,13 +182,26 @@ class LoginController: UIViewController, UICollectionViewDelegate, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PageCell
         
         if indexPath.item == pages.count {
-            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath)
+            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath) as! LoginCell
+            loginCell.delegate = self
             return loginCell
         }
         
         let page = pages[indexPath.item]
         cell.page = page
         return cell
+    }
+    
+    func finishLoggingIn() {
+        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        guard let mainNavigationController = rootViewController as? MainNavigationController else {
+            return
+        }
+        
+        mainNavigationController.viewControllers = [HomeController()]
+        
+        
+        dismiss(animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

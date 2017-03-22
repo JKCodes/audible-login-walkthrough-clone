@@ -10,6 +10,8 @@ import UIKit
 
 class LoginCell: BaseCell {
     
+    weak var delegate: LoginControllerDelegate?
+    
     let logoImageView: UIImageView = {
         let image = UIImage(named: "logo")
         let imageView = UIImageView(image: image)
@@ -34,13 +36,22 @@ class LoginCell: BaseCell {
         return textField
     }()
     
-    let loginButton: UIButton = {
+    lazy var loginButton: UIButton = { [weak self] in
+        guard let this = self else {
+            return UIButton()
+        }
+        
         let button = UIButton(type: .system)
         button.backgroundColor = .orange
         button.setTitle("Log in", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(this, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
+    
+    func handleLogin() {
+        delegate?.finishLoggingIn()
+    }
 
     override func setupViews() {
     

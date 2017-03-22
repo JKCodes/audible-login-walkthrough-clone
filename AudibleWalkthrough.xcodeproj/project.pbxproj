@@ -20,6 +20,7 @@
 		D8706A111E81C38D00725424 /* LeftPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8706A101E81C38D00725424 /* LeftPaddedTextField.swift */; };
 		D88F283E1E83210100E5BB7A /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F283D1E83210100E5BB7A /* MainNavigationController.swift */; };
 		D88F28401E83228600E5BB7A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F283F1E83228600E5BB7A /* HomeController.swift */; };
+		D88F28421E83277900E5BB7A /* LoginControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F28411E83277900E5BB7A /* LoginControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D8706A101E81C38D00725424 /* LeftPaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftPaddedTextField.swift; sourceTree = "<group>"; };
 		D88F283D1E83210100E5BB7A /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		D88F283F1E83228600E5BB7A /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		D88F28411E83277900E5BB7A /* LoginControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +72,7 @@
 		D87069EE1E81A83D00725424 /* AudibleWalkthrough */ = {
 			isa = PBXGroup;
 			children = (
-				D8706A061E81ADD300725424 /* Extensions */,
+				D8706A061E81ADD300725424 /* Protocols and Extensions */,
 				D8706A051E81ADCF00725424 /* Model */,
 				D8706A041E81ADCA00725424 /* View */,
 				D8706A031E81ADC500725424 /* Controller */,
@@ -112,12 +114,13 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		D8706A061E81ADD300725424 /* Extensions */ = {
+		D8706A061E81ADD300725424 /* Protocols and Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				D8706A011E81AB3700725424 /* UIView + Anchors.swift */,
+				D88F28411E83277900E5BB7A /* LoginControllerDelegate.swift */,
 			);
-			name = Extensions;
+			name = "Protocols and Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +203,7 @@
 				D88F28401E83228600E5BB7A /* HomeController.swift in Sources */,
 				D8706A021E81AB3700725424 /* UIView + Anchors.swift in Sources */,
 				D8706A0C1E81B16800725424 /* Page.swift in Sources */,
+				D88F28421E83277900E5BB7A /* LoginControllerDelegate.swift in Sources */,
 				D8706A081E81ADED00725424 /* PageCell.swift in Sources */,
 				D8706A0A1E81AE0500725424 /* BaseCell.swift in Sources */,
 				D87069F01E81A83D00725424 /* AppDelegate.swift in Sources */,
